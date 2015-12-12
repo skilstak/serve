@@ -1,9 +1,11 @@
 # Go Web Server
 
-This is minimal web server written in Go to 1) serve as an example
-of a basic web API and web file server 2) provide boilerplate for
-very basic microservices 3) add to any web projects that require a
-minimal web server on any platform (such as Phaser.io game development).
+This is minimal web server written in Go to
+
+1. serve as an example of a basic web API and web file server
+2. provide boilerplate for very basic microservices
+3. add to any web projects that require a minimal web server on any platform (such as Phaser.io game development).
+
 Go's single, runnable files make it ideal for this usage as a minimal
 web server that will run on anything without additional installation
 or configuration. Just download the binary for your platform and
@@ -20,9 +22,10 @@ directory matching your platform and run it.
 
 Really, really basic, by design:
 
-  serve
-  serve www
-  serve 8080
-  serve www 8080
-  serve 8080 www
-
+`
+serve
+serve www
+serve 8080
+serve www 8080
+serve 8080 www
+`
