@@ -22,10 +22,10 @@ directory matching your platform and run it.
 
 Really, really basic, by design:
 
-`
+```
 serve
 serve www
 serve 8080
 serve www 8080
 serve 8080 www
-`
+```
