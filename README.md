@@ -1,6 +1,6 @@
 # Go Web Server
 
-This is minimal web server written in Go to
+This is a minimal web server written in Go to
 
 1. serve as an example of a basic web API and web file server
 2. provide boilerplate for very basic microservices
