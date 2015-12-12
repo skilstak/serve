@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"os/user"
 	"path/filepath"
 	"strconv"
 )
@@ -81,8 +82,18 @@ func parseArgs() {
 	}
 }
 
+func portFromUid() {
+	u, err := user.Current()
+	if err != nil {
+		return
+	}
+	uid := u.Uid
+	port = ":8" + uid[len(uid)-3:]
+}
+
 func main() {
 	wd, _ := os.Getwd()
+	portFromUid()
 	parseArgs()
 	ldir = filepath.Join(wd, dir)
 

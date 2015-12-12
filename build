@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo "Building for Windows ..."
+GOOS=windows go build -o windows/serve.exe serve.go
+echo "Building for Mac (darwin) ..."
+GOOS=darwin go build -o darwin/serve serve.go
+echo "Building for Linux ..."
+GOOS=linux go build -o linux/serve serve.go
