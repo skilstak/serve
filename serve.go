@@ -46,7 +46,8 @@ func skilstakHello(w http.ResponseWriter, r *http.Request) {
 // Sends files to the browser
 func serve(w http.ResponseWriter, r *http.Request) {
 	file := r.URL.Path
-	http.ServeFile(w, r, dir+"/"+file)
+	println(ldir + "/" + file)
+	http.ServeFile(w, r, ldir+"/"+file)
 	log.Print(r.Method, " ", file)
 
 }
@@ -105,7 +106,9 @@ func main() {
 	parseArgs()
 	ldir = filepath.Join(wd, dir)
 	if !exists(ldir) {
-		log.Printf("%s not found, serving current dir", ldir, port)
+		log.Printf("%s not found, serving %s", ldir, wd)
+		dir = ""
+		ldir = wd
 	}
 
 	// first match wins
