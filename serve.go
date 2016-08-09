@@ -46,8 +46,11 @@ func skilstakHello(w http.ResponseWriter, r *http.Request) {
 // Sends files to the browser
 func serve(w http.ResponseWriter, r *http.Request) {
 	file := r.URL.Path
-	println(ldir + "/" + file)
-	http.ServeFile(w, r, ldir+"/"+file)
+	println(ldir + file)
+	w.Header().Set("Cach-Control", "no-cache, no-store, must-revalidate")
+	w.Header().Set("Pragma", "no-cache")
+	w.Header().Set("Expires", "0")
+	http.ServeFile(w, r, ldir+file)
 	log.Print(r.Method, " ", file)
 
 }
