@@ -51,6 +51,14 @@ func serve(w http.ResponseWriter, r *http.Request) {
 
 }
 
+func exists(p string) bool {
+	if _, err := os.Stat(p); err == nil {
+		return true
+	} else {
+		return false
+	}
+}
+
 func parseArgs() {
 	argc := len(os.Args)
 	switch {
@@ -96,6 +104,9 @@ func main() {
 	portFromUid()
 	parseArgs()
 	ldir = filepath.Join(wd, dir)
+	if !exists(ldir) {
+		log.Printf("%s not found, serving current dir", ldir, port)
+	}
 
 	// first match wins
 	http.HandleFunc("/skilstak", skilstakHello)
