@@ -7,4 +7,4 @@ echo "Building for Mac (darwin) ..."
 GOOS=darwin go build -o mac/serve serve.go
 
 echo "Building for Linux ..."
-GOOS=linux go build -o linux/serve serve.go
+env GOOS=linux GOARCH=386 CGO_ENABLED=0 go build -o linux/serve serve.go
