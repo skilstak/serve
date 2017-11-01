@@ -1,10 +1,10 @@
 #!/bin/sh
 
 echo "Building for Windows ..."
-GOOS=windows go build -o windows/serve.exe serve.go
+GOOS=windows go build -o bin/windows/serve.exe serve.go
 
 echo "Building for Mac (darwin) ..."
-GOOS=darwin go build -o mac/serve serve.go
+GOOS=darwin go build -o bin/mac/serve serve.go
 
 echo "Building for Linux ..."
-env GOOS=linux GOARCH=386 CGO_ENABLED=0 go build -o linux/serve serve.go
+env GOOS=linux GOARCH=386 CGO_ENABLED=0 go build -o bin/linux/serve serve.go
